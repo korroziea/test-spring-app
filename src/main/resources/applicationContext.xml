@@ -22,7 +22,8 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="by.rubashenko.springcourse.MusicPlayer">
+          class="by.rubashenko.springcourse.MusicPlayer"
+          scope="prototype">
         <property name="music">
             <list>
                 <ref bean="rockMusicBean"/>
