@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.util.Random;
+
 @Component
 public class MusicPlayer {
     private Music music1;
@@ -16,9 +18,13 @@ public class MusicPlayer {
         this.music2 = music2;
     }
 
-    public String playMusic() {
-         return "Playing: " + music1.getSong() + ", " + music2.getSong();
-/*        System.out.println("Playing: " + classicalMusic.getSong());
-        System.out.println("Playing: " + rockMusic.getSong());*/
+    public void playMusic(Enum genre) {
+        int randomSongNumber = new Random().nextInt(3);
+
+        if (genre == Genre.ROCK) {
+            System.out.println(music1.getSongs().get(randomSongNumber));
+        } else {
+            System.out.println(music2.getSongs().get(randomSongNumber));
+        }
     }
 }
